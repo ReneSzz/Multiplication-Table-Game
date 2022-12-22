@@ -1,14 +1,14 @@
 
 const pageTitle = document.getElementById('operator');
 const question = document.getElementById('operation');
-
+const labelInput = document.getElementById('userInput');
 max = 10;
 operatorMax = 3;
 num1 = 0; 
 num2 = 0;
 operator = 0;
 answer = 0;
-
+userAnswer = "";
 
 
 
@@ -110,3 +110,14 @@ function randomOperator(symbol)
 }
 
 
+labelInput.addEventListener('keypress', function (e) {
+        
+        if (e.key === 'Enter') {
+          console.log("enter");
+          userAnswer = labelInput.value;
+          if (userAnswer == answer)
+          {
+                console.log("winner")
+        }
+        }
+    });
