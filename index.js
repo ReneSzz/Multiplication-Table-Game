@@ -7,56 +7,27 @@ max = 10;
 operatorMax = 3;
 num1 = 0; 
 num2 = 0;
-operator = 0;
+operator = "x";
 answer = 0;
 userAnswer = "";
 
 
+
+
+
 randomize();
-console.log(num1, num2);
-operator = randomOperator(operator);
 console.log(operator);
 answer = calculateAnswer(num1,num2,operator);
 console.log(answer);
 pageTitle.innerHTML = ``;
 question.innerHTML = `${num1} ${operator} ${num2} = `;
 
-function calculateAnswer(num1,num2,operator)
+function calculateAnswer(num1,num2)
 {
-    switch(operator)
-    {
-
-    case("-"):
    
-   answer = num1 - num2;
-       
-    break;
-
-    case("+"):
-    
-    answer = num1 + num2;
-    
-  
-            break;
-    case("/"):
-    if (num2 > num1){
-    answer = num2 / num1
-    }
-
-    else
-    answer = num1 / num2;
+    answer = num1 * num2;
   
     
-            break;
-    
-     case("*"):
-    
-      
-     answer = num1 * num2;
-            break;
-
-     
-    }
     answer = Math.round(answer);
     return answer;
 
@@ -67,48 +38,12 @@ function randomize()
 {
     num1 = Math.floor(Math.random() * 10) + 1
     num2 = Math.floor(Math.random() * 10) + 1
-   
-   
+
 question.innerHTML = `${num1} ${operator} ${num2} = `;
     
 }
 
-function randomOperator(symbol)
-{
- symbol =   Math.random() * operatorMax; 
-   symbol = Math.round(symbol);
- switch(symbol)
-    {
 
-    case(0):
-    symbol = "+";
-   
-       
-    break;
-
-    case(1):
-    
-    symbol = "-";
-    
-  
-            break;
-    case(2):
-
-    symbol = "*";
-  
-    
-            break;
-    
-     case(3):
-    
-        symbol = "/";
-       
-            break;
-
-     
-    }
-    return symbol;
-}
 
 
 labelInput.addEventListener('keypress', function (e) {
@@ -126,12 +61,9 @@ labelInput.addEventListener('keypress', function (e) {
 
                 }, 400); 
                 
-                
-                operator = randomOperator(operator);
+                labelInput.value ="";
                 randomize();
-
-
-                answer = calculateAnswer(num1,num2,operator);
+                answer = calculateAnswer(num1,num2);
                 
         }
         }
