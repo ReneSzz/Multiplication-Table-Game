@@ -3,6 +3,8 @@ const pageTitle = document.getElementById('operator');
 const question = document.getElementById('operation');
 const labelInput = document.getElementById('userInput');
 const bgModal = document.getElementById('bgModal');
+const modalContent = document.getElementById('modalContent');
+const modalText = document.getElementById('modalText');
 max = 10;
 operatorMax = 3;
 num1 = 0; 
@@ -65,6 +67,16 @@ labelInput.addEventListener('keypress', function (e) {
                 randomize();
                 answer = calculateAnswer(num1,num2);
                 
+        }
+         if (userAnswer != answer){
+                modalText.innerHTML = "Incorrect!"
+                modalContent.style.color = "red";
+                bgModal.style.display = "flex";
+                setTimeout(function(){
+                        bgModal.style.display = "none";
+
+
+                }, 400); 
         }
         }
     });
