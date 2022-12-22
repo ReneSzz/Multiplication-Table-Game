@@ -38,8 +38,8 @@ function calculateAnswer(num1,num2)
 
 function randomize()
 {
-    num1 = Math.floor(Math.random() * 10) + 1
-    num2 = Math.floor(Math.random() * 10) + 1
+    num1 = Math.floor(Math.random() * 9) + 2
+    num2 = Math.floor(Math.random() * 9) + 2
 
 question.innerHTML = `${num1} ${operator} ${num2} = `;
     
@@ -51,10 +51,14 @@ question.innerHTML = `${num1} ${operator} ${num2} = `;
 labelInput.addEventListener('keypress', function (e) {
         
         if (e.key === 'Enter') {
-          console.log("enter");
+          console.log("answer");
           userAnswer = labelInput.value;
+
+
           if (userAnswer == answer)
           {
+                modalText.innerHTML = "Correct &#10004;"
+                modalContent.style.color = "green"
                 bgModal.style.display = "flex";
                 console.log("winner");
                 setTimeout(function(){
@@ -68,7 +72,7 @@ labelInput.addEventListener('keypress', function (e) {
                 answer = calculateAnswer(num1,num2);
                 
         }
-         if (userAnswer != answer){
+        else if (userAnswer !== answer){
                 modalText.innerHTML = "Incorrect!"
                 modalContent.style.color = "red";
                 bgModal.style.display = "flex";
