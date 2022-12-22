@@ -2,6 +2,7 @@
 const pageTitle = document.getElementById('operator');
 const question = document.getElementById('operation');
 const labelInput = document.getElementById('userInput');
+const bgModal = document.getElementById('bgModal');
 max = 10;
 operatorMax = 3;
 num1 = 0; 
@@ -117,7 +118,14 @@ labelInput.addEventListener('keypress', function (e) {
           userAnswer = labelInput.value;
           if (userAnswer == answer)
           {
-                console.log("winner")
+                bgModal.style.display = "flex";
+                console.log("winner");
+                setTimeout(function(){
+                        bgModal.style.display = "none";
+
+
+                }, 400); 
+                
         }
         }
     });
