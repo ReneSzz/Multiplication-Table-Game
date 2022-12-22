@@ -14,8 +14,14 @@ answerCalc(){
     }
 
     randomize(){
+        if (tableLevel == "All"){
         this.num1 = Math.floor(Math.random() * 9) + 2
         this.num2 = Math.floor(Math.random() * 9) + 2
+        }
+        if (tableLevel != "All"){
+                this.num1 = tableLevel;
+                this.num2 = Math.floor(Math.random() * 9) + 2
+                }
     
     question.innerHTML = `${this.num1} ${this.operator} ${this.num2} = `;
     }
@@ -33,48 +39,17 @@ const labelInput = document.getElementById('userInput');
 const bgModal = document.getElementById('bgModal');
 const modalContent = document.getElementById('modalContent');
 const modalText = document.getElementById('modalText');
-const navbarElements = document.getElementsByClassName('navElement')
+const navbarElements = document.getElementsByClassName('navElement');
+const navBar = document.getElementById('navbar');
 max = 10;
 operatorMax = 3;
-// num1 = 0; 
-// num2 = 0;
-// operator = "x";
-// answer = 0;
 userAnswer = "";
-
+tableLevel = "All";
 
 
 
 currentGame.randomize();
 currentGame.answerCalc();
-// randomize();
-
-// console.log(operator);
-// answer = calculateAnswer(num1,num2,operator);
-// console.log(answer);
-// pageTitle.innerHTML = ``;
-// question.innerHTML = `${num1} ${operator} ${num2} = `;
-
-// function calculateAnswer(num1,num2)
-// {
-   
-//     answer = num1 * num2;
-  
-    
-//     answer = Math.round(answer);
-//     return answer;
-
-// }
-
-
-// function randomize()
-// {
-//     num1 = Math.floor(Math.random() * 9) + 2
-//     num2 = Math.floor(Math.random() * 9) + 2
-
-// question.innerHTML = `${num1} ${operator} ${num2} = `;
-    
-// }
 
 
 
@@ -119,7 +94,17 @@ labelInput.addEventListener('keypress', function (e) {
     [...navbarElements].forEach(element => {
         element.addEventListener('click', function(e)
         {
+                for (const i of navbarElements){
+                        i.style.color="white";
+                }
                 element.style.color ="red";
-
+                tableLevel = element.innerHTML;
+                console.log(tableLevel);
+                labelInput.value ="";
+                currentGame.randomize();
+                currentGame.answerCalc();
         })
     });
+
+
+    
