@@ -97,7 +97,7 @@ labelInput.addEventListener('keypress', function (e) {
                 for (const i of navbarElements){
                         i.style.color="white";
                 }
-                element.style.color ="red";
+                element.style.color ="#77d4ca";
                 tableLevel = element.innerHTML;
                 console.log(tableLevel);
                 labelInput.value ="";
