@@ -12,9 +12,7 @@ answer = 0;
 userAnswer = "";
 
 
-
-num1=randomize(num1);
-num2=randomize(num2);
+randomize();
 console.log(num1, num2);
 operator = randomOperator(operator);
 console.log(operator);
@@ -65,11 +63,13 @@ function calculateAnswer(num1,num2,operator)
 }
 
 
-function randomize(num1)
+function randomize()
 {
     num1 = Math.floor(Math.random() * 10) + 1
-  
-    return Math.round(num1);
+    num2 = Math.floor(Math.random() * 10) + 1
+   
+   
+question.innerHTML = `${num1} ${operator} ${num2} = `;
     
 }
 
@@ -125,6 +125,13 @@ labelInput.addEventListener('keypress', function (e) {
 
 
                 }, 400); 
+                
+                
+                operator = randomOperator(operator);
+                randomize();
+
+
+                answer = calculateAnswer(num1,num2,operator);
                 
         }
         }
