@@ -103,3 +103,7 @@ background-color: var(--accentColor);
     color: white;
     
     }
+
+
+.navElement:hover
+{cursor: pointer;}

@@ -33,6 +33,7 @@ const labelInput = document.getElementById('userInput');
 const bgModal = document.getElementById('bgModal');
 const modalContent = document.getElementById('modalContent');
 const modalText = document.getElementById('modalText');
+const navbarElements = document.getElementsByClassName('navElement')
 max = 10;
 operatorMax = 3;
 // num1 = 0; 
@@ -113,4 +114,12 @@ labelInput.addEventListener('keypress', function (e) {
                 }, 400); 
         }
         }
+    });
+
+    [...navbarElements].forEach(element => {
+        element.addEventListener('click', function(e)
+        {
+                element.style.color ="red";
+
+        })
     });
