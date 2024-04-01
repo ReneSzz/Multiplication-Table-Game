@@ -1,4 +1,8 @@
 
+    
+
+
+
 class mathGame {
 constructor(num1, num2){
    this.num1 = num1;
@@ -29,8 +33,6 @@ answerCalc(){
 
 
 let currentGame = new mathGame(0,0,'*')
-
-
 
 
 const pageTitle = document.getElementById('operator');

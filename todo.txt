@@ -1,0 +1,6 @@
+1. Refactor code to use React 
+2. On input check if the entered number is correct before pressing enter. 
+
+
+3. Create back-end for score keeping 
+4. add different types of math questions 
